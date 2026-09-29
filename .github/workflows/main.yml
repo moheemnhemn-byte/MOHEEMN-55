@@ -12,9 +12,13 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 11
+          java-version: 17
       - uses: android-actions/setup-android@v3
       - run: sdkmanager "ndk;24.0.8215888" "platforms;android-33" "build-tools;33.0.0"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 11
       - name: Install JS deps
         working-directory: SAMP-Mobile-Launcher-RN-main
         run: yarn install --frozen-lockfile || yarn install
